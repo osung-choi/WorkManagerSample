@@ -1,11 +1,11 @@
-package com.osung.workersample.repository.database
+package com.osung.worksample.repository.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.osung.workersample.repository.database.entity.UserEntity
+import com.osung.worksample.repository.database.entity.UserEntity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

@@ -1,4 +1,4 @@
-package com.osung.workersample
+package com.osung.worksample
 
 import android.app.Application
 import androidx.hilt.work.HiltWorkerFactory

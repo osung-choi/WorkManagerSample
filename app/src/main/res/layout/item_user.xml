@@ -6,7 +6,7 @@
     <data>
         <variable
             name="user"
-            type="com.osung.workersample.repository.database.entity.UserEntity" />
+            type="com.osung.worksample.repository.database.entity.UserEntity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

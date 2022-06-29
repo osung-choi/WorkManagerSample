@@ -1,4 +1,4 @@
-package com.osung.workersample
+package com.osung.worksample
 
 import org.junit.Test
 

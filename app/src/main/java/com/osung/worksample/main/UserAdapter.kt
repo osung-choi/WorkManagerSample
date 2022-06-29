@@ -1,12 +1,12 @@
-package com.osung.workersample.main
+package com.osung.worksample.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.osung.workersample.databinding.ItemUserBinding
-import com.osung.workersample.repository.database.entity.UserEntity
+import com.osung.worksample.databinding.ItemUserBinding
+import com.osung.worksample.repository.database.entity.UserEntity
 
 class UserAdapter: ListAdapter<UserEntity, UserViewHolder>(UserDiff()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {

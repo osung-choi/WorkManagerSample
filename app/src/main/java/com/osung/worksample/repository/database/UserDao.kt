@@ -1,9 +1,9 @@
-package com.osung.workersample.repository.database
+package com.osung.worksample.repository.database
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.osung.workersample.repository.database.entity.UserEntity
+import com.osung.worksample.repository.database.entity.UserEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao

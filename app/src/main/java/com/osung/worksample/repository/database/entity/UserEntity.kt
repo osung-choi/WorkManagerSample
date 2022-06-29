@@ -1,4 +1,4 @@
-package com.osung.workersample.repository.database.entity
+package com.osung.worksample.repository.database.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

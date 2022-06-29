@@ -1,12 +1,12 @@
-package com.osung.workersample.main
+package com.osung.worksample.main
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
-import com.osung.workersample.R
-import com.osung.workersample.databinding.ActivityMainBinding
+import com.osung.worksample.R
+import com.osung.worksample.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
