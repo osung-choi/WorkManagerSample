@@ -1,6 +1,7 @@
 package com.osung.worksample.main
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.osung.worksample.repository.UserRepository
 import com.osung.worksample.repository.database.entity.UserEntity
@@ -13,7 +14,7 @@ class MainViewModel @Inject constructor(
     private val userRepository: UserRepository
 ): ViewModel() {
     private var index = 0
-    val userList = userRepository.getUserList()
+    val userList = userRepository.getUserList().asLiveData()
 
     fun addNewEmployee() {
         viewModelScope.launch {
