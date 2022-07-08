@@ -6,6 +6,7 @@ import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import androidx.work.workDataOf
 import com.osung.worksample.repository.UserRepository
+import com.osung.worksample.repository.database.entity.UserEntity
 import com.osung.worksample.util.USER_AGE
 import com.osung.worksample.util.USER_NAME
 import dagger.assisted.Assisted
@@ -14,37 +15,35 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 
-//https://developer.android.com/reference/androidx/hilt/work/HiltWorker
-//https://charlezz.medium.com/assistedinject란-무엇인가-35fbc90069a1
-
 @HiltWorker
-class EmployeeWorker @AssistedInject constructor(
+class InsertWorker @AssistedInject constructor(
     private val repository: UserRepository,
     @Assisted val context: Context,
     @Assisted val workerParameters: WorkerParameters
 ): CoroutineWorker(context, workerParameters) {
 
     override suspend fun doWork() = withContext(Dispatchers.IO) {
-
         delay(3000)
 
         try {
             val userName = inputData.getString(USER_NAME)
+            val userAge = inputData.getInt(USER_AGE, 0)
 
-            if (userName.isNullOrEmpty()) {
+            if (userName.isNullOrEmpty() || userAge == 0) {
                 Result.failure()
             } else {
-                Result.success(workDataOf(
-                    USER_NAME to userName,
-                    USER_AGE to 23)
+                repository.addUser(
+                    UserEntity(0, userName, userAge, "010-0000-0000")
                 )
-//                repository.addUser(
-//                    UserEntity(0, userName, 23, "010-0000-0000")
-//                )
             }
 
-        } catch (exception: Exception) {
+            Result.success()
+        } catch (e: Exception) {
             Result.failure()
         }
+    }
+
+    companion object {
+        const val USER_ENTITY = "USER_ENTITY"
     }
 }
