@@ -9,9 +9,11 @@ import com.osung.worksample.repository.UserRepository
 import com.osung.worksample.repository.database.AppDatabase
 import com.osung.worksample.repository.database.UserDao
 import com.osung.worksample.repository.database.entity.UserEntity
+import com.osung.worksample.util.USER_NAME
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 
 //https://developer.android.com/reference/androidx/hilt/work/HiltWorker
@@ -25,26 +27,22 @@ class EmployeeWorker @AssistedInject constructor(
 ): CoroutineWorker(context, workerParameters) {
 
     override suspend fun doWork() = withContext(Dispatchers.IO) {
+        delay(3000)
+
         try {
             val userName = inputData.getString(USER_NAME)
 
             if (userName.isNullOrEmpty()) {
                 Result.failure()
             } else {
-//                val database = AppDatabase.getInstance(applicationContext)
-//                database.userDao().insert(UserEntity(0, userName, 23, "010-0000-0000"))
                 repository.addUser(
                     UserEntity(0, userName, 23, "010-0000-0000")
                 )
-            }
 
-            Result.success()
+                Result.success()
+            }
         } catch (exception: Exception) {
             Result.failure()
         }
-    }
-
-    companion object {
-        const val USER_NAME = "USER_NAME"
     }
 }

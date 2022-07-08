@@ -25,9 +25,11 @@ class MainActivity : AppCompatActivity() {
         binding.viewModel = viewModel
         binding.list.adapter = adapter
 
-
-        viewModel.userList.observe(this) {
-            it
+        lifecycleScope.launch {
+            viewModel.userList.collect {
+                adapter.submitList(it)
+            }
         }
+
     }
 }
