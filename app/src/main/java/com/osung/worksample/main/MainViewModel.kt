@@ -32,10 +32,5 @@ class MainViewModel @Inject constructor(
 
         continuation.then(insertWorker)
             .enqueue()
-
-//        workManager.enqueue(OneTimeWorkRequestBuilder<EmployeeWorker>()
-//            .setInputData(workDataOf(USER_NAME to "오케스트라"))
-//            .build()
-//        )
     }
 }

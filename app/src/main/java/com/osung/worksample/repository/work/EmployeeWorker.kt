@@ -38,9 +38,6 @@ class EmployeeWorker @AssistedInject constructor(
                     USER_NAME to userName,
                     USER_AGE to 23)
                 )
-//                repository.addUser(
-//                    UserEntity(0, userName, 23, "010-0000-0000")
-//                )
             }
 
         } catch (exception: Exception) {
